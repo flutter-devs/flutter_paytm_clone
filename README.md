@@ -1,6 +1,19 @@
-# flutter_paytm_ui
+# Flutter Paytm UI Demo
 
-A new Flutter application.
+A sample application to show Paytm Flutter Clone. 
+
+# Demo
+<img height="580px" width="350px" src="https://github.com/flutter-devs/flutter_paytm_clone/blob/master/screens/demo.gif">
+
+
+
+# Android Screen
+<img height="480px" src="https://github.com/flutter-devs/flutter_paytm_clone/blob/master/screens/android1.jpg"> <img height="480px" src="https://github.com/flutter-devs/flutter_paytm_clone/blob/master/screens/android2.jpg"> <img height="480px" src="https://github.com/flutter-devs/flutter_paytm_clone/blob/master/screens/android3.jpg">
+
+
+# iOS Screen
+<img height="480px" src="https://github.com/flutter-devs/flutter_paytm_clone/blob/master/screens/iPhone1.jpg"> <img height="480px" src="https://github.com/flutter-devs/flutter_paytm_clone/blob/master/screens/iPhone2.jpg"> <img height="480px" src="https://github.com/flutter-devs/flutter_paytm_clone/blob/master/screens/iPhone3.jpg">
+
 
 ## Getting Started
 
