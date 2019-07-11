@@ -8,11 +8,11 @@ A sample application to show Paytm Flutter Clone.
 
 
 # Android Screen
-<img height="480px" src="https://github.com/flutter-devs/flutter_paytm_clone/blob/master/screens/android1.jpg"> 
+<img height="480px" src="https://github.com/flutter-devs/flutter_paytm_clone/blob/master/screens/android1.png"> 
 
 
 # iOS Screen
-<img height="480px" src="https://github.com/flutter-devs/flutter_paytm_clone/blob/master/screens/iphone1.jpg">
+<img height="480px" src="https://github.com/flutter-devs/flutter_paytm_clone/blob/master/screens/iphone1.png">
 
 
 ## Getting Started

@@ -40,15 +40,23 @@ class _PaytmState extends State<Paytm> {
                   .size
                   .width / 1.35,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Image.asset("assets/paytm_logo.png"),
-                  new Padding(padding: EdgeInsets.only(left: 34)),
-                  Image.asset(
-                    "assets/uanotif_nomessage.png",
-                    color: Colors.blue,
-                    width: 20,
-                    height: 20,
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Icon(Icons.search,color: Colors.blue,),
+                  ),
+
+
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: Image.asset(
+                      "assets/uanotif_nomessage.png",
+                      color: Colors.blue,
+                      width: 20,
+                      height: 20,
+                    ),
                   ),
                 ],
               ),
@@ -207,6 +215,7 @@ class _PaytmState extends State<Paytm> {
             child: Container(
               color: Colors.white,
               child: CarouselSlider(
+
                 aspectRatio: 2,
                 viewportFraction: 1.0,
                 initialPage: 0,
@@ -270,10 +279,12 @@ class _PaytmState extends State<Paytm> {
 
   List<ImageSliderModel> _getImageSliderList() {
     List<ImageSliderModel> list = new List();
-    list.add(new ImageSliderModel("assets/mobilebanner.png"));
-    list.add(new ImageSliderModel("assets/gstbanner.png"));
-    list.add(new ImageSliderModel("assets/banner3.png"));
-    list.add(new ImageSliderModel("assets/banner3.png"));
+
+    list.add(new ImageSliderModel("assets/real.jpg"));
+    list.add(new ImageSliderModel("assets/real.jpg"));
+    list.add(new ImageSliderModel("assets/real.jpg"));
+    list.add(new ImageSliderModel("assets/real.jpg"));
+
     return list;
   }
 
