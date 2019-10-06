@@ -42,13 +42,10 @@ class _PaytmState extends State<Paytm> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-
                   Padding(
                     padding: const EdgeInsets.only(left: 20),
                     child: Icon(Icons.search,color: Colors.blue,),
                   ),
-
-
                   Padding(
                     padding: const EdgeInsets.only(right: 20),
                     child: Image.asset(
