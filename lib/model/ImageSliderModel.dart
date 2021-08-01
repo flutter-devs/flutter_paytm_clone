@@ -1,4 +1,4 @@
-class ImageSliderModel{
+class ImageSliderModel {
   String _path;
 
   ImageSliderModel(this._path);
@@ -8,5 +8,4 @@ class ImageSliderModel{
   set path(String value) {
     _path = value;
   }
-
 }

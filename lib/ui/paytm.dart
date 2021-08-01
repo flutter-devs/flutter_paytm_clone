@@ -35,20 +35,17 @@ class _PaytmState extends State<Paytm> {
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(10)),
               height: 40,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width / 1.35,
+              width: MediaQuery.of(context).size.width / 1.35,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-
                   Padding(
                     padding: const EdgeInsets.only(left: 20),
-                    child: Icon(Icons.search,color: Colors.blue,),
+                    child: Icon(
+                      Icons.search,
+                      color: Colors.blue,
+                    ),
                   ),
-
-
                   Padding(
                     padding: const EdgeInsets.only(right: 20),
                     child: Image.asset(
@@ -74,50 +71,45 @@ class _PaytmState extends State<Paytm> {
         type: BottomNavigationBarType.fixed,
         items: [
           new BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/home.png",
-                width: 24.0,
-                height: 24.0,
-              ),
-              title: Text(
-                'Home',
-              )),
+            icon: Image.asset(
+              "assets/home.png",
+              width: 24.0,
+              height: 24.0,
+            ),
+            label: 'Home',
+          ),
           new BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/shopping-bagg.png",
-                width: 24.0,
-                height: 24.0,
-              ),
-              title: Text(
-                'Mall',
-              )),
+            icon: Image.asset(
+              "assets/shopping-bagg.png",
+              width: 24.0,
+              height: 24.0,
+            ),
+            label: 'Mall',
+          ),
           new BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/qr-code.png",
-                width: 24.0,
-                height: 24.0,
-              ),
-              title: Text(
-                'Scan',
-              )),
+            icon: Image.asset(
+              "assets/qr-code.png",
+              width: 24.0,
+              height: 24.0,
+            ),
+            label: 'Scan',
+          ),
           new BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/bank.png",
-                width: 24.0,
-                height: 24.0,
-              ),
-              title: Text(
-                'Bank',
-              )),
+            icon: Image.asset(
+              "assets/bank.png",
+              width: 24.0,
+              height: 24.0,
+            ),
+            label: 'Bank',
+          ),
           new BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/delivery.png",
-                width: 24.0,
-                height: 24.0,
-              ),
-              title: Text(
-                'Inbox',
-              )),
+            icon: Image.asset(
+              "assets/delivery.png",
+              width: 24.0,
+              height: 24.0,
+            ),
+            label: 'Inbox',
+          ),
         ]);
   }
 
@@ -129,7 +121,8 @@ class _PaytmState extends State<Paytm> {
               width: double.maxFinite,
               color: Colors.blue[800],
               child: Container(
-                child: CarouselSlider(reverse: false,
+                child: CarouselSlider(
+                  reverse: false,
                   aspectRatio: 5,
                   viewportFraction: 1.0,
                   initialPage: 0,
@@ -141,8 +134,7 @@ class _PaytmState extends State<Paytm> {
                       print(_currentIndexUp);
                     });
                   },
-                  items: List<GridView>.generate(
-                      (2), (int index) {
+                  items: List<GridView>.generate((2), (int index) {
                     return GridView.count(
                       crossAxisCount: 4,
                       children: List<GridItemTop>.generate((4), (int index) {
@@ -163,15 +155,14 @@ class _PaytmState extends State<Paytm> {
 //                return GridList(_getGridList()[index]);
 //              },
 //            ),
-          ),
-
-
-          Container( color: Colors.blue[800],
+              ),
+          Container(
+            color: Colors.blue[800],
             child: new Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(2, (int index) {
-                  return dots(_currentIndexUp, index);
-                }),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(2, (int index) {
+                return dots(_currentIndexUp, index);
+              }),
             ),
           ),
           Padding(
@@ -183,10 +174,7 @@ class _PaytmState extends State<Paytm> {
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20))),
               height: 40,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
+              width: MediaQuery.of(context).size.width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -215,7 +203,6 @@ class _PaytmState extends State<Paytm> {
             child: Container(
               color: Colors.white,
               child: CarouselSlider(
-
                 aspectRatio: 2,
                 viewportFraction: 1.0,
                 initialPage: 0,
@@ -271,7 +258,8 @@ class _PaytmState extends State<Paytm> {
     list.add(new GridModel(
         "assets/add_money_passbook.png", "Add Money", Colors.white));
     list.add(new GridModel("assets/book.png", "Link Account", Colors.white));
-    list.add(new GridModel("assets/ic_passbook_header.png", "Link Account", Colors.white));
+    list.add(new GridModel(
+        "assets/ic_passbook_header.png", "Link Account", Colors.white));
     list.add(new GridModel("assets/book.png", "Link Account", Colors.white));
 
     return list;
@@ -322,24 +310,16 @@ class _PaytmState extends State<Paytm> {
           decoration: BoxDecoration(
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.circular(10),
-              color: dotColor(index)
-          ));
+              color: dotColor(index)));
     }
   }
-
 
   Widget imageSliderItem(ImageSliderModel i) {
     return Container(
         padding: EdgeInsets.only(left: 8, right: 8),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-        width: MediaQuery
-            .of(context)
-            .size
-            .width,
-        height: MediaQuery
-            .of(context)
-            .size
-            .height,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: Image.asset(
@@ -350,11 +330,8 @@ class _PaytmState extends State<Paytm> {
   }
 
   Color dotColor(int index) {
-    return _currentIndexUp == index
-        ? Colors.white
-        : Colors.grey;
+    return _currentIndexUp == index ? Colors.white : Colors.grey;
   }
-
 }
 
 class GridItem extends StatelessWidget {
@@ -405,7 +382,6 @@ class GridItemTop extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(1 / 2),
       child: Container(
-
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -422,7 +398,10 @@ class GridItemTop extends StatelessWidget {
                 child: Text(
                   gridModel.title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 12, color: Colors.white,),
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ],
@@ -432,6 +411,3 @@ class GridItemTop extends StatelessWidget {
     );
   }
 }
-
-
-
