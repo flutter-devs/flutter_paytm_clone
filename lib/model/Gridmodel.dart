@@ -24,6 +24,4 @@ class GridModel {
   set imagePath(String value) {
     _imagePath = value;
   }
-
-
 }
