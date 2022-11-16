@@ -1,10 +1,7 @@
-import 'dart:math';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_paytm_ui/model/Gridmodel.dart';
 import 'package:flutter_paytm_ui/model/ImageSliderModel.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 
 class Paytm extends StatefulWidget {
   @override
@@ -21,7 +18,7 @@ class _PaytmState extends State<Paytm> {
         appBar: _appBar(),
         body: _bodyItem(),
         backgroundColor: Colors.grey[200],
-        bottomNavigationBar: _bottemTab());
+        bottomNavigationBar: _bottomTab());
   }
 
   Widget _appBar() {
@@ -35,20 +32,17 @@ class _PaytmState extends State<Paytm> {
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(10)),
               height: 40,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width / 1.35,
+              width: MediaQuery.of(context).size.width / 1.35,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-
                   Padding(
                     padding: const EdgeInsets.only(left: 20),
-                    child: Icon(Icons.search,color: Colors.blue,),
+                    child: Icon(
+                      Icons.search,
+                      color: Colors.blue,
+                    ),
                   ),
-
-
                   Padding(
                     padding: const EdgeInsets.only(right: 20),
                     child: Image.asset(
@@ -68,56 +62,51 @@ class _PaytmState extends State<Paytm> {
     );
   }
 
-  Widget _bottemTab() {
+  Widget _bottomTab() {
     return new BottomNavigationBar(
         currentIndex: 0,
         type: BottomNavigationBarType.fixed,
         items: [
           new BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/home.png",
-                width: 24.0,
-                height: 24.0,
-              ),
-              title: Text(
-                'Home',
-              )),
+            icon: Image.asset(
+              "assets/home.png",
+              width: 24.0,
+              height: 24.0,
+            ),
+            label: 'Home',
+          ),
           new BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/shopping-bagg.png",
-                width: 24.0,
-                height: 24.0,
-              ),
-              title: Text(
-                'Mall',
-              )),
+            icon: Image.asset(
+              "assets/shopping-bagg.png",
+              width: 24.0,
+              height: 24.0,
+            ),
+            label: 'Mall',
+          ),
           new BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/qr-code.png",
-                width: 24.0,
-                height: 24.0,
-              ),
-              title: Text(
-                'Scan',
-              )),
+            icon: Image.asset(
+              "assets/qr-code.png",
+              width: 24.0,
+              height: 24.0,
+            ),
+            label: 'Scan',
+          ),
           new BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/bank.png",
-                width: 24.0,
-                height: 24.0,
-              ),
-              title: Text(
-                'Bank',
-              )),
+            icon: Image.asset(
+              "assets/bank.png",
+              width: 24.0,
+              height: 24.0,
+            ),
+            label: 'Bank',
+          ),
           new BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/delivery.png",
-                width: 24.0,
-                height: 24.0,
-              ),
-              title: Text(
-                'Inbox',
-              )),
+            icon: Image.asset(
+              "assets/delivery.png",
+              width: 24.0,
+              height: 24.0,
+            ),
+            label: 'Inbox',
+          ),
         ]);
   }
 
@@ -129,28 +118,33 @@ class _PaytmState extends State<Paytm> {
               width: double.maxFinite,
               color: Colors.blue[800],
               child: Container(
-                child: CarouselSlider(reverse: false,
-                  aspectRatio: 5,
-                  viewportFraction: 1.0,
-                  initialPage: 0,
-                  enlargeCenterPage: true,
-                  autoPlay: false,
-                  onPageChanged: (index) {
-                    setState(() {
-                      _currentIndexUp = index;
-                      print(_currentIndexUp);
-                    });
-                  },
+                child: CarouselSlider(
                   items: List<GridView>.generate(
-                      (2), (int index) {
-                    return GridView.count(
-                      crossAxisCount: 4,
-                      children: List<GridItemTop>.generate((4), (int index) {
-                        return GridItemTop(
-                            _getGridList()[index + (_currentIndexUp * 4)]);
-                      }),
-                    );
-                  }),
+                    (2),
+                    (int index) {
+                      return GridView.count(
+                        crossAxisCount: 4,
+                        children: List<GridItemTop>.generate((4), (int index) {
+                          return GridItemTop(
+                              _getGridList()[index + (_currentIndexUp * 4)]);
+                        }),
+                      );
+                    },
+                  ),
+                  options: CarouselOptions(
+                    aspectRatio: 5,
+                    viewportFraction: 1.0,
+                    initialPage: 0,
+                    enlargeCenterPage: true,
+                    autoPlay: false,
+                    onPageChanged: (int index, reason) {
+                      setState(() {
+                        _currentIndexUp = index;
+                        print(_currentIndexUp);
+                      });
+                    },
+                    reverse: false,
+                  ),
                 ),
               )
 
@@ -163,15 +157,14 @@ class _PaytmState extends State<Paytm> {
 //                return GridList(_getGridList()[index]);
 //              },
 //            ),
-          ),
-
-
-          Container( color: Colors.blue[800],
+              ),
+          Container(
+            color: Colors.blue[800],
             child: new Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(2, (int index) {
-                  return dots(_currentIndexUp, index);
-                }),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(2, (int index) {
+                return dots(_currentIndexUp, index);
+              }),
             ),
           ),
           Padding(
@@ -183,10 +176,7 @@ class _PaytmState extends State<Paytm> {
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20))),
               height: 40,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
+              width: MediaQuery.of(context).size.width,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -215,22 +205,22 @@ class _PaytmState extends State<Paytm> {
             child: Container(
               color: Colors.white,
               child: CarouselSlider(
-
-                aspectRatio: 2,
-                viewportFraction: 1.0,
-                initialPage: 0,
-                autoPlayInterval: Duration(seconds: 2),
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                pauseAutoPlayOnTouch: Duration(seconds: 2),
-                enlargeCenterPage: true,
-                autoPlay: true,
-                onPageChanged: (index) {
-                  setState(() {
-                    _currentIndex = index;
-                    print(_currentIndex);
-                  });
-                },
-                items: CarouselSliderList(_getImageSliderList()),
+                options: CarouselOptions(
+                  aspectRatio: 2,
+                  viewportFraction: 1.0,
+                  initialPage: 0,
+                  autoPlayInterval: Duration(seconds: 2),
+                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  pauseAutoPlayOnTouch: true,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  onPageChanged: (index,reason) {
+                    setState(() {
+                      _currentIndex = index;
+                    });
+                  },
+                ),
+                items: carouselSliderList(_getImageSliderList()),
               ),
             ),
           ),
@@ -240,7 +230,7 @@ class _PaytmState extends State<Paytm> {
   }
 
   List<GridModel> _getGridItemList() {
-    List<GridModel> list = new List<GridModel>();
+    List<GridModel> list = <GridModel>[];
     list.add(new GridModel("assets/smartphone.png", "Mobile\nprepaid", null));
     list.add(new GridModel("assets/airplane.png", "Flights", null));
     list.add(new GridModel("assets/access.png", "Movie Tickets", null));
@@ -261,7 +251,7 @@ class _PaytmState extends State<Paytm> {
   }
 
   List<GridModel> _getGridList() {
-    List<GridModel> list = new List<GridModel>();
+    List<GridModel> list = <GridModel>[];
     list.add(new GridModel("assets/send_money.png", "Pay", Colors.white));
     list.add(new GridModel("assets/money_transfer.png", "UPI", Colors.white));
     list.add(new GridModel(
@@ -271,14 +261,15 @@ class _PaytmState extends State<Paytm> {
     list.add(new GridModel(
         "assets/add_money_passbook.png", "Add Money", Colors.white));
     list.add(new GridModel("assets/book.png", "Link Account", Colors.white));
-    list.add(new GridModel("assets/ic_passbook_header.png", "Link Account", Colors.white));
+    list.add(new GridModel(
+        "assets/ic_passbook_header.png", "Link Account", Colors.white));
     list.add(new GridModel("assets/book.png", "Link Account", Colors.white));
 
     return list;
   }
 
   List<ImageSliderModel> _getImageSliderList() {
-    List<ImageSliderModel> list = new List();
+    List<ImageSliderModel> list = [];
 
     list.add(new ImageSliderModel("assets/real.jpg"));
     list.add(new ImageSliderModel("assets/real.jpg"));
@@ -288,7 +279,7 @@ class _PaytmState extends State<Paytm> {
     return list;
   }
 
-  CarouselSliderList(List<ImageSliderModel> getImageSliderList) {
+  List<Widget> carouselSliderList(List<ImageSliderModel> getImageSliderList) {
     return getImageSliderList.map((i) {
       return Builder(builder: (BuildContext context) {
         return imageSliderItem(i);
@@ -322,24 +313,16 @@ class _PaytmState extends State<Paytm> {
           decoration: BoxDecoration(
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.circular(10),
-              color: dotColor(index)
-          ));
+              color: dotColor(index)));
     }
   }
-
 
   Widget imageSliderItem(ImageSliderModel i) {
     return Container(
         padding: EdgeInsets.only(left: 8, right: 8),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-        width: MediaQuery
-            .of(context)
-            .size
-            .width,
-        height: MediaQuery
-            .of(context)
-            .size
-            .height,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: Image.asset(
@@ -350,15 +333,12 @@ class _PaytmState extends State<Paytm> {
   }
 
   Color dotColor(int index) {
-    return _currentIndexUp == index
-        ? Colors.white
-        : Colors.grey;
+    return _currentIndexUp == index ? Colors.white : Colors.grey;
   }
-
 }
 
 class GridItem extends StatelessWidget {
-  GridModel gridModel;
+  final GridModel gridModel;
 
   GridItem(this.gridModel);
 
@@ -396,7 +376,7 @@ class GridItem extends StatelessWidget {
 }
 
 class GridItemTop extends StatelessWidget {
-  GridModel gridModel;
+  final GridModel gridModel;
 
   GridItemTop(this.gridModel);
 
@@ -405,7 +385,6 @@ class GridItemTop extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(1 / 2),
       child: Container(
-
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -422,7 +401,10 @@ class GridItemTop extends StatelessWidget {
                 child: Text(
                   gridModel.title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 12, color: Colors.white,),
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ],
@@ -432,6 +414,3 @@ class GridItemTop extends StatelessWidget {
     );
   }
 }
-
-
-

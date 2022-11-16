@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_paytm_ui/constant/Constant.dart';
 
@@ -22,7 +21,7 @@ class SplashScreenState extends State<SplashScreen>
   }
 
   void navigationPage() {
-    Navigator.of(context).pushReplacementNamed(PAY_TM);
+    Navigator.of(context).pushReplacementNamed(payTM);
   }
 
   @override

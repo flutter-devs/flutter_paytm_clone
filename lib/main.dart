@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(primaryColor: Colors.blue[800],
       ),
       routes: <String, WidgetBuilder>{
-        SPLASH_SCREEN: (BuildContext context) => SplashScreen(),
-        PAY_TM: (BuildContext context) => Paytm(),
+        splashScreen: (BuildContext context) => SplashScreen(),
+        payTM: (BuildContext context) => Paytm(),
 
 
       },
