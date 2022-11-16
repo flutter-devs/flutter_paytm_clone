@@ -1,3 +1,3 @@
-String SPLASH_SCREEN='/SplashScreen',
-PAY_TM='/Paytm';
+String splashScreen='/SplashScreen',
+payTM='/Paytm';
 
